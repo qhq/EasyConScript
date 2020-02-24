@@ -1,0 +1,126 @@
+#联网开启对战BUG，人站在货郎面前，今天商品还未购买的状态
+#修改日期为有31天的月份第一天，例如1月1日
+
+PRINT 手柄激活
+B 100
+1000
+B 100
+1000
+
+FOR
+    FOR $1 = 1 TO 30
+        PRINT 开始对话
+        B
+        500
+        B
+        800
+        A
+        800
+        A
+        800
+        A
+        800
+        A
+        2000
+        A
+        3000
+        A
+        500
+        A
+        500
+        B
+        800
+        B
+        800
+        B
+        500
+        PRINT 对话结束
+
+        PRINT 切帧开始，当前日期 & $1 & 
+        HOME
+        WAIT 1000
+        DOWN
+        WAIT 200
+        RIGHT
+        WAIT 50
+        RIGHT
+        WAIT 50
+        RIGHT
+        WAIT 50
+        RIGHT
+        WAIT 50
+        A
+        WAIT 500
+        LS DOWN,1600
+        LS RESET
+        WAIT 100
+        RIGHT
+        WAIT 100
+        DOWN
+        WAIT 50
+        DOWN
+        WAIT 50
+        DOWN
+        WAIT 50
+        DOWN
+        WAIT 50
+        A
+        WAIT 200
+        DOWN
+        WAIT 50
+        DOWN
+        WAIT 50
+        A
+        WAIT 200
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+    IF $1 != 30
+        UP
+        WAIT 50
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        A
+        WAIT 100
+    ELSE
+        UP
+        WAIT 50
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        A
+        WAIT 100
+        A
+        WAIT 200
+        LEFT
+        WAIT 200
+        LEFT
+        WAIT 200
+        LEFT
+        WAIT 200
+        UP
+        WAIT 50
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        RIGHT
+        WAIT 100
+        A
+        WAIT 100
+    ENDIF
+        HOME
+        WAIT 1000
+        A
+        WAIT 120
+        PRINT 切帧结束
+    NEXT
+NEXT
