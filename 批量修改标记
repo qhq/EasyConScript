@@ -1,0 +1,56 @@
+#批量修改标记
+
+FOR 10
+    LCLICK
+    300
+NEXT
+
+FOR 14
+    PRINT 进入查看能力
+    A
+    500
+    DOWN
+    500
+    A
+    1700
+    FOR 30
+        PRINT 开始标记
+        X
+        200
+        X
+        100
+        X
+        100
+        RIGHT
+        100
+        X
+        100
+        X
+        100
+        RIGHT
+        100
+        RIGHT
+        100
+        RIGHT
+        100
+        X
+        100
+        X
+        100
+        RIGHT
+        100
+        X
+        100
+        X
+        100
+        B
+        500
+        PRINT 标记结束
+        DOWN
+        500
+    NEXT
+    B
+    1500
+    R
+    800
+NEXT
