@@ -1,0 +1,235 @@
+#自动开车 200224.14.06
+#面对坑（无领取瓦特状态）
+#未联网状态
+
+#唤醒
+FOR 10
+    B
+    300
+NEXT
+
+#非4位数密码为无密码车
+_开车密码 = 0
+
+FOR
+    #联网
+    PRINT 开始联网操作
+    Y
+    800
+    PLUS
+    20000 #联网等待时间20秒
+    A
+    500
+    B
+    1000
+    #联网
+
+    #进坑
+    A
+    5000 #等待5秒
+    #进坑
+
+    $1 = _开车密码
+    IF $1 >= 1000
+        IF $1 <= 9999
+            #输密码
+            PRINT 准备输入密码
+            PLUS
+            800
+            RIGHT
+            100
+            DOWN
+            100
+            PRINT 开始输入密码
+            FOR 4
+                $2 = $1
+                $2 %= 10
+                PUSH $2
+                $1 /= 10
+            NEXT
+            FOR 4
+                POP $2
+                IF $2 = 0
+                    DOWN
+                    100
+                    DOWN
+                    100
+                    A
+                    100
+                    UP
+                    100
+                    UP
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 1
+                    UP
+                    100
+                    LEFT
+                    100
+                    A
+                    100
+                    RIGHT
+                    100
+                    DOWN
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 2
+                    UP
+                    100
+                    A
+                    100
+                    DOWN
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 3
+                    UP
+                    100
+                    RIGHT
+                    100
+                    A
+                    100
+                    LEFT
+                    100
+                    DOWN
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 4
+                    LEFT
+                    100
+                    A
+                    100
+                    RIGHT
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 5
+                    A
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 6
+                    RIGHT
+                    100
+                    A
+                    100
+                    LEFT
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 7
+                    DOWN
+                    100
+                    LEFT
+                    100
+                    A
+                    100
+                    RIGHT
+                    100
+                    UP
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 8
+                    DOWN
+                    100
+                    A
+                    100
+                    UP
+                    100
+                    CONTINUE 1
+                ENDIF
+                IF $2 = 9
+                    DOWN
+                    100
+                    RIGHT
+                    100
+                    A
+                    100
+                    LEFT
+                    100
+                    UP
+                    100
+                    CONTINUE 1
+                ENDIF
+            NEXT
+            PRINT 密码输入完毕
+            PLUS
+            1000
+            A
+            500
+            #输密码
+        ENDIF
+    ENDIF
+
+    #招募
+    PRINT 开始进行招募
+    A
+    2000
+    60000 #待机60秒
+    UP #准备就绪
+    500
+    A
+    500
+    10000 #待机10秒
+    A
+    500
+    A
+    500
+    A
+    500
+    A
+    500
+    A
+    500
+    #招募
+
+    #进场
+    PRINT 准备进场
+    20000 #进场动画20秒
+    PRINT 开始选择技能
+    A
+    300
+    A
+    500
+    A
+    500
+    A
+    1000
+    #进场
+
+    #退场
+    PRINT 准备退场
+    HOME 1000
+    DOWN
+    200
+    DOWN
+    200
+    DOWN
+    200
+    DOWN
+    200
+    A
+    200
+    A
+    300
+    B
+    500
+    A
+    200
+    A
+    200
+    A
+    200
+    A
+    200
+    #退场
+
+    #停车15秒
+    PRINT 待机15秒后继续发车
+    15000
+    #停车
+NEXT
