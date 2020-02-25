@@ -1,126 +1,145 @@
 #联网开启对战BUG，人站在货郎面前，今天商品还未购买的状态
 #修改日期为有31天的月份第一天，例如1月1日
 
+#唤醒
 PRINT 手柄激活
-B 100
-1000
-B 100
-1000
+FOR 10
+    LCLICK
+    300
+NEXT
 
 FOR
     FOR $1 = 1 TO 30
-        PRINT 开始对话
         B
-        500
+        200
         B
+        200
+        B
+        200
+        # 开始对话
+        A
+        #PRINT 欢迎光临…要不要来看看今天的宝贝
         800
         A
+        #PRINT 当当…今天的宝贝是…
         800
         A
+        #PRINT 收你￥3000，你要买吗？
         800
         A
-        800
-        A
+        #PRINT 多谢惠顾
         2000
         A
+        #PRINT 恭喜获得…
         3000
         A
+        #PRINT 放进口袋了
         500
         A
         500
+        #PRINT 欢迎光临
         B
-        800
+        200
         B
-        800
+        200
         B
-        500
-        PRINT 对话结束
+        200
+        B
+        200
+        # 对话结束
 
-        PRINT 切帧开始，当前日期 & $1 & 
+        # 开始切帧
+        PRINT 当前日期 & $1 & 号
         HOME
-        WAIT 1000
+        1000
         DOWN
-        WAIT 200
+        200
         RIGHT
-        WAIT 50
+        50
         RIGHT
-        WAIT 50
+        50
         RIGHT
-        WAIT 50
+        50
         RIGHT
-        WAIT 50
+        50
         A
-        WAIT 500
+        500
         LS DOWN,1600
         LS RESET
-        WAIT 100
+        100
         RIGHT
-        WAIT 100
+        100
         DOWN
-        WAIT 50
+        50
         DOWN
-        WAIT 50
+        50
         DOWN
-        WAIT 50
+        50
         DOWN
-        WAIT 50
+        50
         A
-        WAIT 200
+        200
         DOWN
-        WAIT 50
+        50
         DOWN
-        WAIT 50
+        50
         A
-        WAIT 200
+        200
         RIGHT
-        WAIT 100
+        100
         RIGHT
-        WAIT 100
+        100
     IF $1 != 30
         UP
-        WAIT 50
+        50
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
+        RIGHT
+        80
         A
-        WAIT 100
+        100
     ELSE
         UP
-        WAIT 50
+        50
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
+        RIGHT
+        80
         A
-        WAIT 100
+        100
         A
-        WAIT 200
+        200
         LEFT
-        WAIT 200
+        200
         LEFT
-        WAIT 200
+        200
         LEFT
-        WAIT 200
+        200
         UP
-        WAIT 50
+        50
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
         RIGHT
-        WAIT 100
+        80
+        RIGHT
+        80
         A
-        WAIT 100
+        100
     ENDIF
         HOME
-        WAIT 1000
+        1000
         A
-        WAIT 120
-        PRINT 切帧结束
+        120
+        # PRINT 切帧结束
     NEXT
 NEXT
