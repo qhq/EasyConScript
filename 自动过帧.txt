@@ -1,4 +1,4 @@
-#自动过N帧 200227.00.35
+#自动过N帧 200227.21.13
 #面对坑，未联网状态
 
 #唤醒
@@ -53,28 +53,31 @@ FOR $1
     50
     DOWN
     50
-    LS RIGHT,600
+    LS RIGHT
     A
     200
     UP
     650
     A
     200
+    LS RESET
     $2 += 1
-    IF $2 = %1
-        LS LEFT,600
+    IF $2 = _需过帧数
+        LS LEFT
         A
-        600
+        800
         FOR $1
             UP
             100
         NEXT
-        LS RIGHT,600
+        LS RIGHT
+        600
         A
         200
+        LS RESET
     ENDIF
     HOME
-    500
+    800
     A
     1000
     B
