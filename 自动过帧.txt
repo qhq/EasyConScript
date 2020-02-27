@@ -67,7 +67,7 @@ FOR $1
         A
         800
         FOR $1
-            UP
+            DOWN
             100
         NEXT
         LS RIGHT
