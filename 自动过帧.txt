@@ -1,0 +1,84 @@
+#自动过N帧 200227.00.35
+#面对坑，未联网状态
+
+#唤醒
+FOR 10
+    B
+    300
+NEXT
+
+_需过帧数 = 3
+
+$1 = _需过帧数
+
+FOR $1
+    A
+    500
+    A
+    500
+    A
+    500
+    A
+    2000
+    HOME
+    1000
+    DOWN
+    50
+    RIGHT
+    50
+    RIGHT
+    50
+    RIGHT
+    50
+    RIGHT
+    200
+    A
+    500
+    LS DOWN,1700
+    LS RESET
+    200
+    RIGHT
+    200
+    DOWN
+    50
+    DOWN
+    50
+    DOWN
+    50
+    DOWN
+    200
+    A
+    200
+    DOWN
+    50
+    DOWN
+    50
+    LS RIGHT,600
+    A
+    200
+    UP
+    650
+    A
+    200
+    $2 += 1
+    IF $2 = %1
+        LS LEFT,600
+        A
+        600
+        FOR $1
+            UP
+            100
+        NEXT
+        LS RIGHT,600
+        A
+        200
+    ENDIF
+    HOME
+    500
+    A
+    1000
+    B
+    1000
+    A
+    4000
+NEXT
