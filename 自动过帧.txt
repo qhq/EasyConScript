@@ -1,5 +1,8 @@
-#自动过N帧 200228.20.52
-#面对坑，未联网状态
+#版本：200306.21.46
+#准备：面对坑，未联网状态
+#说明：此脚本用于过指定N帧后检查目标宝可梦
+#           常用于软锁坑寻找所需宝可梦
+#           在指定时间后未手动停止脚本会自动重启游戏进行循环
 
 #唤醒
 FOR 10
@@ -8,23 +11,85 @@ FOR 10
 NEXT
 
 _需过帧数 = 3
+_当前瓦特 = 481
 
-$1 = _需过帧数
-FOR $1
-    $2 += 1
-    PRINT 第 & $2 & / & $1 & 帧
-    A
-    400
-    A
-    400
-    A
-    500
-    A
-    200
-    A
-    200
-    A
-    2000
+FOR
+    $4 += 1
+    PRINT ------第 & $4 & 次------
+    $1 = _需过帧数
+    $3 = _当前瓦特
+    $2 = 0
+    FOR $1
+        $2 += 1
+        PRINT 第 & $2 & 帧| & \
+        PRINT 瓦特： & $3 & kw & \
+        IF $2 <= 3
+            PRINT |锁定
+        ELSE
+            PRINT |随机
+        ENDIF
+        $3 += 2
+        A
+        300
+        A
+        300
+        A
+        400
+        A
+        200
+        A
+        2000
+        HOME
+        1000
+        DOWN
+        50
+        RIGHT
+        50
+        RIGHT
+        50
+        RIGHT
+        50
+        RIGHT
+        200
+        A
+        500
+        LS DOWN,1700
+        LS RESET
+        200
+        RIGHT
+        200
+        DOWN
+        50
+        DOWN
+        50
+        DOWN
+        50
+        DOWN
+        200
+        A
+        200
+        DOWN
+        50
+        DOWN
+        50
+        LS RIGHT
+        A
+        200
+        UP
+        650
+        A
+        200
+        LS RESET
+        HOME
+        500
+        A
+        1000
+        B
+        1000
+        A
+        4000
+    NEXT
+    PRINT 恢复日期
     HOME
     1000
     DOWN
@@ -58,69 +123,47 @@ FOR $1
     50
     DOWN
     50
-    LS RIGHT
+    #LS LEFT
     A
-    200
-    UP
-    650
+    200#800
+    FOR $1
+        DOWN
+        100
+    NEXT
+    LS RIGHT
+    800
     A
     200
     LS RESET
     HOME
     500
     A
-    1000
-    B
+    800
+    $1 = 5
+    PRINT 检查宝可梦， & $1 & 秒后重启游戏
+    A
+    300
+    A
+    300
+    A
+    200
+    FOR $1
+        PRINT $1
+        $1 += -1
+        1000
+    NEXT
+    
+    PRINT 重启游戏
+    HOME
+    800
+    X
+    500
+    A
+    3000
+    A
     1000
     A
-    4000
+    15000
+    A
+    9000
 NEXT
-
-HOME
-1000
-DOWN
-50
-RIGHT
-50
-RIGHT
-50
-RIGHT
-50
-RIGHT
-200
-A
-500
-LS DOWN,1700
-LS RESET
-200
-RIGHT
-200
-DOWN
-50
-DOWN
-50
-DOWN
-50
-DOWN
-200
-A
-200
-DOWN
-50
-DOWN
-50
-#LS LEFT
-A
-200#800
-FOR $1
-    DOWN
-    100
-NEXT
-LS RIGHT
-800
-A
-200
-LS RESET
-HOME
-500
-A
